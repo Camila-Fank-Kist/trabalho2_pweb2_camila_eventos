@@ -49,12 +49,12 @@
                     </a>
                 </div>
                 <div class="relative mb-1">
-                    <button type="submit"
+                    <button type="button"
                         class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
                         <a href="{{ route('pedido.chart') }}">
                             <i class="fa-solid fa-chart-pie"></i> Gráfico Pedidos</a>
                     </button>
-                    <button type="submit"
+                    <button type="button"
                         class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
                         <a href="{{ route('pedido.report') }}">
                             <i class="fa-solid fa-file"></i> Relatório</a>
