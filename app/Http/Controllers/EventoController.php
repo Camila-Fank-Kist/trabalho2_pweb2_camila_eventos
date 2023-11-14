@@ -19,7 +19,7 @@ class EventoController extends Controller
     public function index()
     {
         $eventos = Evento::with('evento_apresentacao','pedido','avaliacao','apresentacoes')->get();
-        //dd($eventos); //apresentacoes (n-n) não tá funcionando: lista só 1
+        //dd($eventos); //apresentacoes (n-n) não tá funcionando: lista só 1 
 
         return view('evento.list')->with(['eventos'=> $eventos]);
     }

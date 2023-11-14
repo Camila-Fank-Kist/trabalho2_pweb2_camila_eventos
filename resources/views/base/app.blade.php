@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +20,86 @@
         }
     </script>
     <title>@yield('titulo') - SisACAD</title>
+
+    <!-- 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"],
+          },
+        },
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>-->
+
+    <style>
+        .dropbtn {
+            background-color: #9f1239;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #FFEBF0;
+            color: #9f1239;
+            min-width: 118px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #9f1239;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #9f1239;
+            color: #FFEBF0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #E8C4CE;
+            /*opacity: 0.5;*/
+            color: #9f1239;
+        }
+    </style>
 </head>
 
 <body class="w-screen">
+    <!-- TW Elements JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    -->
     @include('base.header') <!--inclui o conteúdo do arquivo 'base.header'-->
     <div class="md:container md:mx-auto "> <!--px-8-->
         @yield('content') <!--diretiva blade que define uma seção chamada 'content'. 
@@ -30,4 +108,5 @@
     </div>
     @include('base.footer') <!--inclui o conteúdo do arquivo 'base.footer'-->
 </body>
+
 </html>

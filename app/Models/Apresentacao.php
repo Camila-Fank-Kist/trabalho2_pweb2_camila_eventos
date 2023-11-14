@@ -43,7 +43,7 @@ class Apresentacao extends Model
 
     //listar todos os eventos em que a apresentacao estará
     public function eventos(){
-        //relacionamento n - n
+        //relacionamento n - n 
         return $this->belongsToMany(Evento::class,
             'evento_apresentacao','id');
     }//'evento_apresentacao': tabela intermediária que será usada para conectar apresentacao e evento
