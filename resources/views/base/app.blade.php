@@ -46,7 +46,7 @@
       };
     </script>-->
 
-    <style>
+    <!--<style>
         .dropbtn {
             background-color: #9f1239;
             color: white;
@@ -92,7 +92,7 @@
             /*opacity: 0.5;*/
             color: #9f1239;
         }
-    </style>
+    </style>-->
 </head>
 
 <body class="w-screen">

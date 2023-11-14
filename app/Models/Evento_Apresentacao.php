@@ -32,7 +32,7 @@ class Evento_Apresentacao extends Model
     }
 
     public function evento(){
-        //relacionamento 1 - 1 (um para um)
+        //relacionamento 1 - 1 (um para um) 
         return $this->belongsTo(Evento::class,
             'evento_id','id');
     }

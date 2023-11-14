@@ -26,9 +26,9 @@ class Evento extends Model
     protected $casts = [
         'categoria_evento_id'=> "integer",
         'local_id'=> "integer",
-        'data'=> 'datetime:Y-m-d',
-        'hora_inicio'=> "timestamp: H:i:sT",
-        'hora_fim'=> "timestamp: H:i:sT",
+        //'data'=> 'datetime:Y-m-d',
+        //'hora_inicio'=> "timestamp: H:i:sT",
+        //'hora_fim'=> "timestamp: H:i:sT",
         'precoBRL'=> "float",
     ];
 
@@ -61,7 +61,7 @@ class Evento extends Model
 
     //listar todos as apresentaçoes que estão no evento 
     public function apresentacoes(){
-        //relacionamento n - n 
+        //relacionamento n - n  
         return $this->belongsToMany(Apresentacao::class,
             'evento_apresentacao','id');
     }//'evento_apresentacao': tabela intermediária que será usada para conectar apresentacao e evento

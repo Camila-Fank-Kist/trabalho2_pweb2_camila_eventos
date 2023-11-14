@@ -144,8 +144,7 @@ class EventoController extends Controller
             'hora_fim'=> $request->hora_fim,
             'descricao'=> $request->descricao,
             'precoBRL'=> $request->precoBRL,
-            'imagem'=> $request->imagem,
-        ];
+        ];//a imagem não vem aqui pq o formulário tá vazio, então independente se a pessoa tiver selecionado uma imagem ou não, vai substituir
 
         $imagem = $request->file('imagem');
         if($imagem){

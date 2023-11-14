@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Apresentacao;
 use App\Models\Apresentador;
 use App\Models\Categoria_Apresentacao;
@@ -11,13 +12,13 @@ class ApresentacaoController extends Controller
 {
     /**
      * Carrega a listagem de dados
-     */ 
+     */
     public function index()
     {
-        $apresentacoes = Apresentacao::with('eventos','evento_apresentacao')->get();
-        dd($apresentacoes); //eventos (n-n) não tá funcionando: lista só 1 
+        $apresentacoes = Apresentacao::with('eventos', 'evento_apresentacao')->get();
+        dd($apresentacoes[0]->evento_apresentacao[0]->apresentacao->titulo); //eventos (n-n) não tá funcionando: lista só 1 
 
-        return view('apresentacao.list')->with(['apresentacoes'=> $apresentacoes]);
+        return view('apresentacao.list')->with(['apresentacoes' => $apresentacoes]);
     }
 
     /**
@@ -27,7 +28,7 @@ class ApresentacaoController extends Controller
     {
         $apresentadores = Apresentador::orderBy('nome')->get();
         $categorias_apresentacoes = Categoria_Apresentacao::orderBy('nome')->get();
-        return view('apresentacao.form')->with(['apresentadores'=> $apresentadores, 'categorias_apresentacoes'=> $categorias_apresentacoes]);
+        return view('apresentacao.form')->with(['apresentadores' => $apresentadores, 'categorias_apresentacoes' => $categorias_apresentacoes]);
     }
 
     /**
@@ -36,29 +37,29 @@ class ApresentacaoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'titulo'=>'required',
-            'apresentador_id'=>'required',
-            'categoria_apresentacao_id'=>'required',
-        ],[
-            'titulo.required'=>"O :atributo é obrigatorio!",
-            'apresentador_id.required'=>"O :atributo é obrigatorio!",
-            'categoria_apresentacao_id.required'=>"O :atributo é obrigatorio!",
+            'titulo' => 'required',
+            'apresentador_id' => 'required',
+            'categoria_apresentacao_id' => 'required',
+        ], [
+            'titulo.required' => "O :atributo é obrigatorio!",
+            'apresentador_id.required' => "O :atributo é obrigatorio!",
+            'categoria_apresentacao_id.required' => "O :atributo é obrigatorio!",
         ]);
 
         $dados = [
-            'titulo'=> $request->titulo,
-            'apresentador_id'=> $request->apresentador_id,
-            'categoria_apresentacao_id'=> $request->categoria_apresentacao_id,
-            'descricao'=> $request->descricao,
-            'imagem'=> $request->imagem,
+            'titulo' => $request->titulo,
+            'apresentador_id' => $request->apresentador_id,
+            'categoria_apresentacao_id' => $request->categoria_apresentacao_id,
+            'descricao' => $request->descricao,
+            'imagem' => $request->imagem,
         ];
 
         $imagem = $request->file('imagem');
-        if($imagem){
-            $nome_arquivo = date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+        if ($imagem) {
+            $nome_arquivo = date('YmdHis') . '.' . $imagem->getClientOriginalExtension();
             $diretorio = "imagem/apresentacao/";
-            $imagem->storeAs($diretorio,$nome_arquivo,'public');
-            $dados['imagem'] = $diretorio.$nome_arquivo;
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+            $dados['imagem'] = $diretorio . $nome_arquivo;
         }
 
         Apresentacao::create($dados);
@@ -85,9 +86,10 @@ class ApresentacaoController extends Controller
         $categorias_apresentacoes = Categoria_Apresentacao::orderBy('nome')->get();
 
         return view('apresentacao.form')->with([
-            'apresentacao'=> $apresentacao,
-            'apresentadores'=> $apresentadores, 
-            'categorias_apresentacoes'=> $categorias_apresentacoes]);
+            'apresentacao' => $apresentacao,
+            'apresentadores' => $apresentadores,
+            'categorias_apresentacoes' => $categorias_apresentacoes
+        ]);
     }
 
     /**
@@ -96,37 +98,37 @@ class ApresentacaoController extends Controller
     public function update(Request $request, Apresentacao $apresentacao)
     {
         $request->validate([
-            'titulo'=>'required',
-            'apresentador_id'=>'required',
-            'categoria_apresentacao_id'=>'required',
-        ],[
-            'titulo.required'=>"O :atributo é obrigatorio!",
-            'apresentador_id.required'=>"O :atributo é obrigatorio!",
-            'categoria_apresentacao_id.required'=>"O :atributo é obrigatorio!",
+            'titulo' => 'required',
+            'apresentador_id' => 'required',
+            'categoria_apresentacao_id' => 'required',
+        ], [
+            'titulo.required' => "O :atributo é obrigatorio!",
+            'apresentador_id.required' => "O :atributo é obrigatorio!",
+            'categoria_apresentacao_id.required' => "O :atributo é obrigatorio!",
         ]);
 
         $dados = [
-            'titulo'=> $request->titulo,
-            'apresentador_id'=> $request->apresentador_id,
-            'categoria_apresentacao_id'=> $request->categoria_apresentacao_id,
-            'descricao'=> $request->descricao,
-            'imagem'=> $request->imagem,
+            'titulo' => $request->titulo,
+            'apresentador_id' => $request->apresentador_id,
+            'categoria_apresentacao_id' => $request->categoria_apresentacao_id,
+            'descricao' => $request->descricao,
+            'imagem' => $request->imagem,
         ];
 
         $imagem = $request->file('imagem');
-        if($imagem){
-            $nome_arquivo = date('YmdHis').'.'.$imagem->getClientOriginalExtension();
+        if ($imagem) {
+            $nome_arquivo = date('YmdHis') . '.' . $imagem->getClientOriginalExtension();
             $diretorio = "imagem/apresentacao/";
-            $imagem->storeAs($diretorio,$nome_arquivo,'public');
-            $dados['imagem'] = $diretorio.$nome_arquivo;
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+            $dados['imagem'] = $diretorio . $nome_arquivo;
         }
 
         Apresentacao::updateOrCreate(
-            ['id'=>$request->id],
-            $dados);
+            ['id' => $request->id],
+            $dados
+        );
 
         return redirect('apresentacao')->with('success', "Atualizado com sucesso!");
-
     }
 
     /**
@@ -145,16 +147,16 @@ class ApresentacaoController extends Controller
      */
     public function search(Request $request)
     {
-        if(!empty($request->valor)){
+        if (!empty($request->valor)) {
             $apresentacoes = Apresentacao::where(
                 $request->tipo,
-                 'like' ,
-                "%". $request->valor."%"
-                )->get();
+                'like',
+                "%" . $request->valor . "%"
+            )->get();
         } else {
             $apresentacoes = Apresentacao::all();
         }
 
-        return view('apresentacao.list')->with(['apresentacoes'=> $apresentacoes]);
+        return view('apresentacao.list')->with(['apresentacoes' => $apresentacoes]);
     }
 }
