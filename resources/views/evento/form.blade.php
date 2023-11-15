@@ -89,7 +89,7 @@ $route = route('evento.store');
                 <input type="text" name="precoBRL" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-700 border-opacity-40 text-gray-600
                 focus:ring-0 focus:border-rose-700" value="@if (!empty($evento->precoBRL)) {{ $evento->precoBRL }} @elseif(!empty(old('precoBRL'))) {{ old('precoBRL') }} @else {{ '' }} @endif">
             </label><br>
-
+ 
             @php
             $nome_imagem = !empty($evento->imagem) ? $evento->imagem : 'imagem/sem_imagem.jpg';
             @endphp

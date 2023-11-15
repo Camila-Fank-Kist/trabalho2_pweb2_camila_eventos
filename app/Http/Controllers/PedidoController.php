@@ -6,9 +6,11 @@ use App\Charts\GraficoPedidos;
 use App\Models\Pedido;
 use App\Models\Evento;
 use App\Models\Pagamento;
+use App\Models\User;
 use PDF;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -17,7 +19,8 @@ class PedidoController extends Controller
      */ 
     public function index()
     {
-        $pedidos = Pedido::all();
+        $pedidos = Pedido::with('user')->get();
+        //dd($pedidos);
 
         return view('pedido.list')->with(['pedidos'=> $pedidos]);
     }
@@ -29,6 +32,7 @@ class PedidoController extends Controller
     {
         $eventos = Evento::orderBy('nome')->get();
         $pagamentos = Pagamento::orderBy('nome')->get();
+        
         return view('pedido.form')->with(['eventos'=> $eventos, 'pagamentos'=> $pagamentos]);
     }
 

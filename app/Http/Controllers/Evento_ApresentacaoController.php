@@ -40,12 +40,12 @@ class Evento_ApresentacaoController extends Controller
             'hora_inicio'=>'required|date_format:H:i',
             'hora_fim'=>'date_format:H:i|after:hora_inicio'
         ],[
-            'apresentacao_id.required'=>"A :atributo é obrigatorio!",
-            'evento_id.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.required'=>"A :atributo é obrigatorio!",
-            'hora_inicio.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.after'=>"A :atributo deve ser depois da hora_inicio!",
+            'apresentacao_id.required'=>"A apresentação é obrigatoria!",
+            'evento_id.required'=>"O evento é obrigatorio!",
+            'hora_inicio.required'=>"A hora de início é obrigatoria!",
+            'hora_inicio.date_format'=>"Coloque um horário válido na hora de início!",
+            'hora_fim.date_format'=>"Coloque um horário válido na hora de fim!",
+            'hora_fim.after'=>"A hora de fim deve ser depois da hora de início!",
         ]);
 
         $dados = [
@@ -92,12 +92,12 @@ class Evento_ApresentacaoController extends Controller
             'hora_inicio'=>'required|date_format:H:i',
             'hora_fim'=>'date_format:H:i|after:hora_inicio'
         ],[
-            'apresentacao_id.required'=>"A :atributo é obrigatorio!",
-            'evento_id.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.required'=>"A :atributo é obrigatorio!",
-            'hora_inicio.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.after'=>"A :atributo deve ser depois da hora_inicio!",
+            'apresentacao_id.required'=>"A apresentação é obrigatoria!",
+            'evento_id.required'=>"O evento é obrigatorio!",
+            'hora_inicio.required'=>"A hora de início é obrigatoria!",
+            'hora_inicio.date_format'=>"Coloque um horário válido na hora de início!",
+            'hora_fim.date_format'=>"Coloque um horário válido na hora de fim!",
+            'hora_fim.after'=>"A hora de fim deve ser depois da hora de início!",
         ]);
 
         $dados = [

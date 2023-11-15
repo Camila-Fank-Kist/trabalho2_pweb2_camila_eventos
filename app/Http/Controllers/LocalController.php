@@ -120,7 +120,6 @@ class LocalController extends Controller
             'telefone'=> $request->telefone,
             'endereco'=> $request->endereco, //futuramente: endereco_id 
             'descricao'=> $request->descricao,
-            'imagem'=> $request->imagem,
         ];
         /*dd($dados);*/
 

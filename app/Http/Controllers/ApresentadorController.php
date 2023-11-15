@@ -95,7 +95,6 @@ class ApresentadorController extends Controller
         ]);
 
         $dados = [
-            'imagem'=> $request->imagem,
             'nome'=> $request->nome,
             'telefone'=> $request->telefone,
             'data_nascimento'=> $request->data_nascimento,

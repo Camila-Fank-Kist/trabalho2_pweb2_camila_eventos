@@ -52,7 +52,7 @@
                     <span class="text-rose-700 font-semibold">Data Nascimento</span>
                     <input type="date" name="data_nascimento"
                     class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-700 border-opacity-40 text-gray-600 focus:ring-0 focus:border-rose-700"
-                        value="@if (!empty($apresentador->data_nascimento)) {{ $apresentador->data_nascimento }} @elseif (!empty(old('data_nascimento'))){{ old('data_nascimento') }}@else{{ '' }} @endif">
+                        value="@if(!empty($apresentador->data_nascimento)){{$apresentador->data_nascimento}}@elseif(!empty(old('data_nascimento'))){{old('data_nascimento')}}@else{{''}}@endif">
                 </label><br>
 
                 <label class="block">

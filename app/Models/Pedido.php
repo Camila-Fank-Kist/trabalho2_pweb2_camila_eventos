@@ -25,7 +25,7 @@ class Pedido extends Model
         'pagamento_id'=> "integer",
     ];
 
-    public function user(){
+    public function user(){ 
         //relacionamento 1 - 1 
         return $this->belongsTo(User::class,
             'user_id','id');

@@ -112,7 +112,6 @@ class AvaliacaoController extends Controller
             'evento_id'=> $request->evento_id,
             'nota'=> $request->nota,
             'descricao'=> $request->descricao,
-            'imagem'=> $request->imagem,
         ];
 
         $imagem = $request->file('imagem');

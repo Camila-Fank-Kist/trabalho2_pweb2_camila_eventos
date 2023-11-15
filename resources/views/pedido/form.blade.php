@@ -27,14 +27,15 @@
 
                 @if (!empty($pedido->id))
                     @method('PUT')
-                @endif
+                @endif 
 
                 
                 <input type="hidden" name="id"
                     value="@if (!empty($pedido->id)) {{ $pedido->id }}@elseif (!empty(old('id'))){{ old('id') }}@else{{ '' }} @endif">
                 
+                
                 <input type="hidden" name="user_id"
-                    value="2"> <!-- user->id ? -->
+                    value="{{Auth::user()->id}}">
 
                 <label class="block">
                     <span class="text-rose-700 font-semibold">Evento</span>

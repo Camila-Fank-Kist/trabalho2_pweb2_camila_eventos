@@ -16,7 +16,7 @@ class ApresentacaoController extends Controller
     public function index()
     {
         $apresentacoes = Apresentacao::with('eventos', 'evento_apresentacao')->get();
-        dd($apresentacoes[0]->evento_apresentacao[0]->apresentacao->titulo); //eventos (n-n) não tá funcionando: lista só 1 
+        //dd($apresentacoes[0]->evento_apresentacao[0]->apresentacao->titulo); //eventos (n-n) não tá funcionando: lista só 1 
 
         return view('apresentacao.list')->with(['apresentacoes' => $apresentacoes]);
     }
@@ -41,9 +41,9 @@ class ApresentacaoController extends Controller
             'apresentador_id' => 'required',
             'categoria_apresentacao_id' => 'required',
         ], [
-            'titulo.required' => "O :atributo é obrigatorio!",
-            'apresentador_id.required' => "O :atributo é obrigatorio!",
-            'categoria_apresentacao_id.required' => "O :atributo é obrigatorio!",
+            'titulo.required' => "O título é obrigatorio!",
+            'apresentador_id.required' => "O apresentador é obrigatorio!",
+            'categoria_apresentacao_id.required' => "A categoria é obrigatorio!",
         ]);
 
         $dados = [
@@ -112,7 +112,6 @@ class ApresentacaoController extends Controller
             'apresentador_id' => $request->apresentador_id,
             'categoria_apresentacao_id' => $request->categoria_apresentacao_id,
             'descricao' => $request->descricao,
-            'imagem' => $request->imagem,
         ];
 
         $imagem = $request->file('imagem');

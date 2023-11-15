@@ -21,8 +21,8 @@ class Evento_Apresentacao extends Model
     protected $casts = [
         'apresentacao_id'=> "integer",
         'evento_id'=> "integer",
-        'hora_inicio'=> "timestamp: H:i:sT",
-        'hora_fim'=> "timestamp: H:i:sT",
+        'hora_inicio'=> "timestamp: H:i", //H:i:sT
+        'hora_fim'=> "timestamp: H:i", //H:i:sT
     ];
 
     public function apresentacao(){

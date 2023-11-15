@@ -34,7 +34,7 @@
                     value="@if (!empty($avaliacao->id)) {{ $avaliacao->id }}@elseif (!empty(old('id'))){{ old('id') }}@else{{ '' }} @endif">
                 
                 <input type="hidden" name="user_id"
-                    value="2"> <!-- user->id ? --> 
+                    value="{{Auth::user()->id}}">
 
                 <label class="block">
                     <span class="text-rose-700 font-semibold">Evento</span>

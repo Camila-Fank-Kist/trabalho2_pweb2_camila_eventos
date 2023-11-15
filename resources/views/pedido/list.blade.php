@@ -86,7 +86,7 @@
                                 <tr
                                     class="border-b border-rose-800 transition duration-300 ease-in-out hover:bg-rose-100">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium border-rose-800 text-rose-800">{{ $item->id }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->user->name ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->user->name ?? '' }}</td> 
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->evento->nome ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->pagamento->nome ?? '' }}</td>
