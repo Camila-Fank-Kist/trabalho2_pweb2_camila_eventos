@@ -199,7 +199,7 @@ class EventoController extends Controller
             'eventos'=> $eventos
         ];
 
-        $pdf = PDF::loadView('evento.report', $data)->setPaper('a4', 'landscape');
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('evento.report', $data)->setPaper('a4', 'landscape'); //
 
         return $pdf->download("listagem_eventos.pdf");
 }

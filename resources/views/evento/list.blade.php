@@ -93,7 +93,7 @@
                                     }
                                     //var_dump($nome_imagem);
                                 @endphp
-                                <tr 
+                                <tr  
                                     class="border-b border-rose-800 transition duration-300 ease-in-out hover:bg-rose-100">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium border-rose-800 text-rose-800">{{ $item->id }}</td>
                                     <td class="h-32 w-32 object-cover"><img src="{{ $nome_imagem }}" width="100px"

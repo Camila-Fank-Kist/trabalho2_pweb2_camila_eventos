@@ -278,6 +278,14 @@ return array(
          * @var bool
          */
         "enable_html5_parser" => true,
+
+        /*'http_context' => [
+            'ssl'=>[
+                'verify_peer'=>false,
+                'verify_peer_name'=>false,
+                'allow_self_signed'=>true
+            ]
+        ],*/
     ),
 
 
