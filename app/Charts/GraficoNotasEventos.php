@@ -29,7 +29,7 @@ class GraficoNotasEventos
             $SomaNotas += $item->nota;
         }
         $MediaNotas = $SomaNotas / count($avaliacoes);
-        echo var_dump($SomaNotas);
+        echo var_dump($SomaNotas); 
         echo var_dump($MediaNotas);*/
 
         $avaliacoesNota10 = Avaliacao::where(

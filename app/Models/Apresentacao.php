@@ -36,7 +36,7 @@ class Apresentacao extends Model
         'categoria_apresentacao_id','id');
     }
 
-    public function evento_apresentacao(){
+    public function evento_apresentacao(){ 
         //relacionamento 1 - n
         return $this->hasMany(Evento_Apresentacao::class);
     }

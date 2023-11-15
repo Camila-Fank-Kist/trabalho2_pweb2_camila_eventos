@@ -10,6 +10,7 @@ use App\Http\Controllers\Evento_ApresentacaoController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidosUsuarioController;
 use App\Models\Pedido;
 
 /*
@@ -280,6 +281,19 @@ Route::middleware('auth')->group(function () {
     //relatorio
     Route::get('/pedido/report/',
     [PedidoController::class, 'report'])->name('pedido.report');
+
+
+
+
+
+
+    //carrega uma listagem do banco
+    Route::get('/pedidosUsuario/{id}',
+    [PedidosUsuarioController::class, 'index'])->name('pedidosUsuario.index');
+    //chama o método para serch para pesquisar e filtrar o registro da listagem
+    Route::post('/pedidosUsuario/search/{id}',
+    [PedidosUsuarioController::class, 'search'])->name('pedidosUsuario.search');
+    
 
 
 

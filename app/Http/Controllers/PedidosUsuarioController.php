@@ -12,17 +12,27 @@ use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PedidoController extends Controller
+class PedidosUsuarioController extends Controller
 {
     /**
      * Carrega a listagem de dados   
      */ 
 
+    /*
     public function index()
     {
         $pedidos = Pedido::with('user')->get();
 
         return view('pedido.list')->with(['pedidos'=> $pedidos]);
+    }
+    */
+    public function index($id)
+    {
+        //$id = 6;
+        $pedidosUsuario = User::with('pedido')->find($id); //->with('pedido')->get() //select * from User where id = $id
+        //dd($pedidosUsuario->pedido);
+
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario->pedido]);
     }
 
     /**
@@ -128,32 +138,35 @@ class PedidoController extends Controller
 
         return redirect('pedido')->with('success', "Removido com sucesso!");
     }
+    
     /**
      * pesquisa e filtra o registro do banco de dados
      */
-    public function search(Request $request)
+    public function search($id, Request $request)
     {
+        $usuario = User::find($id); //->with('pedido')->get() //select * from User where id = $id
+        //dd($usuario->id);
+        
         if(!empty($request->valor)){
-            $pedidos = Pedido::where(
+            $pedidosUsuario = Pedido::where(
                 $request->tipo,
                  'like' ,
                 "%". $request->valor."%"
-                )->get();
+                )->where('user_id', 'like', '%' . $usuario->id . '%')->get();
         } else {
-            $pedidos = Pedido::all();
+            $pedidosUsuario = User::with('pedido')->find($id)->pedido;
         }
 
-        return view('pedido.list')->with(['pedidos'=> $pedidos]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario]);
     }
 
-    public function chart(GraficoPedidos $pedidos){
+    /*public function chart(GraficoPedidos $pedidos){
         return view('pedido.chart')->with([
             'pedidos'=>  $pedidos->build(),
         ]);
-    }
+    }*/
 
-    // Generate PDF
-    public function report() {
+    /*public function report() {
         $pedidos = Pedido::all();
 
         $data = [
@@ -163,7 +176,6 @@ class PedidoController extends Controller
 
         $pdf = PDF::loadView('pedido.report', $data);
 
-        // download PDF file with download method
         return $pdf->download('listagem_pedidos.pdf');
-      }
+      }*/
 }

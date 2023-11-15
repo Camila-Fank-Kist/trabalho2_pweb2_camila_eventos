@@ -43,6 +43,10 @@
       </div>
     </div>-->
 
+    @php
+        $idUsuario = Auth::user()->id;
+    @endphp
+
     <!-- component -->
     <div class="relative inline-block text-left">
       <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-rose-800 bg-white border border-rose-800 hover:bg-rose-800 hover:bg-opacity-20 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-rose-100 focus:ring-rose-800 focus:ring-opacity-30">
@@ -55,8 +59,18 @@
       <div id="dropdown-menu" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
         <div class="py-2 p-2" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
           <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" href="{{url('profile')}}">
-          <i class="fa-regular fa-user pr-2 pt-1"></i> Perfil
+            <i class="fa-regular fa-user pr-2 pt-1"></i> Perfil
           </a>
+          <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
+          <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" 
+            href="{{ route('pedidosUsuario.index', $idUsuario) }}"> <!-- Auth::user()->id -->
+            <i class="fa-solid fa-cart-shopping pr-2 pt-1"></i> Meus pedidos
+          </a>
+          <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" 
+            href="{{-- route('avaliacoesUsuario.index', $idUsuario) --}}"> <!-- Auth::user()->id -->
+            <i class="fa-regular fa-star pr-2 pt-1"></i> Minhas avaliações
+          </a>
+          <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
           <!-- Authentication -->
           <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -66,7 +80,7 @@
               {{ __('Sair') }}
             </a>
           </form>
-          <!--<a href="{{url('profile')}}">Meus pedidos</a>-->
+          
           <!--<a href="{{url('profile')}}">Minhas avaliações</a>-->
         </div>
       </div>

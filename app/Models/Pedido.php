@@ -26,7 +26,7 @@ class Pedido extends Model
     ];
 
     public function user(){ 
-        //relacionamento 1 - 1 
+        //relacionamento 1 - 1  
         return $this->belongsTo(User::class,
             'user_id','id');
     }
