@@ -11,7 +11,9 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PedidosUsuarioController;
+use App\Http\Controllers\UserController;
 use App\Models\Pedido;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -286,6 +288,20 @@ Route::middleware('auth')->group(function () {
 
 
 
+    //carrega uma listagem do banco
+    Route::get('/user',
+    [UserController::class, 'index'])->name('user.index');
+    //chama o método para serch para pesquisar e filtrar o registro da listagem
+    Route::post('/user/search',
+    [UserController::class, 'search'])->name('user.search');
+    //chama o método para excluir o registro
+    Route::get('/user/destroy/{id}',
+    [UserController::class, 'destroy'])->name('user.destroy');
+
+
+
+
+
 
     //carrega uma listagem do banco
     Route::get('/pedidosUsuario/{id}',
@@ -300,7 +316,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/index', function () {
         return view('index');
-    })->name('index');
+    })->name('index'); 
 
 
 

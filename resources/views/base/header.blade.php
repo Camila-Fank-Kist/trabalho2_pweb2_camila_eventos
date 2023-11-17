@@ -66,10 +66,10 @@
             href="{{ route('pedidosUsuario.index', $idUsuario) }}"> <!-- Auth::user()->id -->
             <i class="fa-solid fa-cart-shopping pr-2 pt-1"></i> Meus pedidos
           </a>
-          <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" 
-            href="{{-- route('avaliacoesUsuario.index', $idUsuario) --}}"> <!-- Auth::user()->id -->
+          <!--<a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" 
+            href="{{-- route('avaliacoesUsuario.index', $idUsuario) --}}">
             <i class="fa-regular fa-star pr-2 pt-1"></i> Minhas avaliações
-          </a>
+          </a>-->
           <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
           <!-- Authentication -->
           <form method="POST" action="{{ route('logout') }}">
@@ -80,6 +80,11 @@
               {{ __('Sair') }}
             </a>
           </form>
+          <hr class="my-2 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
+          <a class="flex block rounded-md px-4 py-2 text-sm text-rose-800 hover:bg-rose-800 hover:bg-opacity-20 active:bg-rose-100 cursor-pointer" role="menuitem" 
+            href="{{ route('user.index') }}">
+            <i class="fa-solid fa-users pr-2 pt-1"></i> Usuários
+          </a>
           
           <!--<a href="{{url('profile')}}">Minhas avaliações</a>-->
         </div>

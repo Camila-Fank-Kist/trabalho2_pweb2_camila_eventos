@@ -28,11 +28,12 @@ class PedidosUsuarioController extends Controller
     */
     public function index($id)
     {
-        //$id = 6;
+        //$id = 6; 
+        $idUsuario = $id;
         $pedidosUsuario = User::with('pedido')->find($id); //->with('pedido')->get() //select * from User where id = $id
         //dd($pedidosUsuario->pedido);
 
-        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario->pedido]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario->pedido, 'idUsuario'=>$idUsuario]);
     }
 
     /**
@@ -144,6 +145,7 @@ class PedidosUsuarioController extends Controller
      */
     public function search($id, Request $request)
     {
+        $idUsuario = $id;
         $usuario = User::find($id); //->with('pedido')->get() //select * from User where id = $id
         //dd($usuario->id);
         
@@ -157,7 +159,7 @@ class PedidosUsuarioController extends Controller
             $pedidosUsuario = User::with('pedido')->find($id)->pedido;
         }
 
-        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario, 'idUsuario'=>$idUsuario]);
     }
 
     /*public function chart(GraficoPedidos $pedidos){

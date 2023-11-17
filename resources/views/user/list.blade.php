@@ -1,6 +1,6 @@
 @extends('base.app')
 
-@section('titulo', 'Listagem de Pedidos')
+@section('titulo', 'Listagem de Usuários')
 
 @section('content')
 
@@ -10,21 +10,17 @@
   class="block rounded-lg bg-rose-800 p-6 mb-4 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
   <h5
     class="pt-4 text-2xl font-medium leading-tight text-white">
-    Meus pedidos
+    Usuários
   </h5>
   <p class="pt-2 pb-2 mb-2 text-base text-white">
-    Confira os seus pedidos.
-  </p> 
+    Confira os users! 
+  </p>
 </div> 
-<!--<h3 class="pt-4 text-2xl font-medium text-rose-800">Listagem de Pedidos</h3>-->
-    @php
-        //dd($idUsuario);
-        //$itemUsuario = $idUsuario;
-    @endphp
+<!--<h3 class="pt-4 text-2xl font-medium text-rose-800">Listagem de Usuários</h3>-->
     <div
         class="block w-full flex space-x-3 rounded-lg bg-white pl-3 pr-7 dark:bg-neutral-700">
 
-        <form action="{{ route('pedidosUsuario.search', $idUsuario) }}" method="post"> <!-- Auth::user()->id -->
+        <form action="{{ route('user.search') }}" method="post">
             @csrf <!-- cria um hash de segurança -->
             <div class="grid grid-cols-4 gap-6 flex space-x-4">
                 <div class="relative mb-1">
@@ -45,25 +41,7 @@
                         class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
                         <i class="fa-solid fa-magnifying-glass"></i> Buscar
                     </button>
-                    
-                    <a class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900"
-                        href="{{ route('pedido.create') }}">
-                        <i class="fa-solid fa-plus"></i>  
-                        Cadastrar
-                    </a>
                 </div>
-                <!--<div class="relative mb-1">
-                    <button type="button"
-                        class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
-                        <a href="{{ route('pedido.chart') }}">
-                            <i class="fa-solid fa-chart-pie"></i> Gráfico Pedidos</a>
-                    </button>
-                    <button type="button"
-                        class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
-                        <a href="{{ route('pedido.report') }}">
-                            <i class="fa-solid fa-file"></i> Relatório</a>
-                    </button>
-                </div>-->
             </div>
         </form>
     </div>
@@ -76,26 +54,25 @@
                         <thead class="border-b border-rose-800 font-medium dark:border-neutral-500">
                             <tr>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Id</th>
-                                <th scope="col" class="px-6 py-4 text-rose-800">Evento</th>
-                                <th scope="col" class="px-6 py-4 text-rose-800">Quantidade</th>
-                                <th scope="col" class="px-6 py-4 text-rose-800">Forma pagamento</th>
-                                <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
+                                <th scope="col" class="px-6 py-4 text-rose-800">Nome</th>
+                                <th scope="col" class="px-6 py-4 text-rose-800">Email</th>
+                                <th scope="col" class="px-6 py-4 text-rose-800">Pedidos</th>
+                                <!--<th scope="col" class="px-6 py-4 text-rose-800">Avaliações</th>-->
                                 <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pedidosUsuario as $item)
+                            @foreach ($users as $item)
                                 <tr
                                     class="border-b border-rose-800 transition duration-300 ease-in-out hover:bg-rose-100">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium border-rose-800 text-rose-800">{{ $item->id }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->evento->nome ?? '' }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade ?? '' }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->pagamento->nome ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->name ?? '' }}</td> 
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->email ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
-                                            href="{{ route('pedido.edit', $item->id) }}">
-                                            <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>
+                                            href="{{ route('pedidosUsuario.index', $item->id) }}">
+                                            <i class="fa-solid fa-cart-shopping"></i> Pedidos</a></td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
-                                            href="{{ route('pedido.destroy', $item->id) }}"
+                                            href="{{ route('user.destroy', $item->id) }}"
                                             onclick="return confirm('Deseja Excluir?')">
                                             <i class="fa-solid fa-trash"></i> Excluir</a>
                                     </td>
