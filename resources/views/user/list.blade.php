@@ -13,7 +13,7 @@
     Usuários
   </h5>
   <p class="pt-2 pb-2 mb-2 text-base text-white">
-    Confira os users! 
+    Confira os usuários! 
   </p>
 </div> 
 <!--<h3 class="pt-4 text-2xl font-medium text-rose-800">Listagem de Usuários</h3>-->
@@ -27,7 +27,8 @@
                     <select name="tipo"
                         class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-800 border-opacity-30 text-gray-600
                 focus:ring-0 focus:border-rose-800">
-                        <option value="quantidade">Quantidade</option>
+                        <option value="name">Nome</option>
+                        <option value="email">Email</option>
                     </select>
                 </div> 
                 <div class="relative mb-1">

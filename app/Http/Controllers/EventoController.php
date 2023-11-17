@@ -48,16 +48,16 @@ class EventoController extends Controller
             'hora_fim'=>'date_format:H:i|after:hora_inicio',
             'precoBRL'=>'required|numeric',
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'categoria_evento_id.required'=>"O :atributo é obrigatorio!",
-            'local_id.required'=>"O :atributo é obrigatorio!",
-            'data.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.required'=>"O :atributo é obrigatorio!",
-            'precoBRL.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.after'=>"A :atributo deve ser depois da hora_inicio!",
-            'precoBRL.numeric'=>"Coloque um valor numérico em :atributo !",
+            'nome.required'=>"O nome é obrigatório!",
+            'categoria_evento_id.required'=>"A categoria é obrigatória!",
+            'local_id.required'=>"O local é obrigatório!",
+            'data.required'=>"data é obrigatória!",
+            'hora_inicio.required'=>"A hora de início é obrigatória!",
+            'precoBRL.required'=>"O preço é obrigatório!",
+            'hora_inicio.date_format'=>"Coloque um horário válido na hora de início!",
+            'hora_fim.date_format'=>"Coloque um horário válido na hora de fim!",
+            'hora_fim.after'=>"A hora de fim deve ser depois da hora de início!",
+            'precoBRL.numeric'=>"Coloque um valor numérico no preço!",
         ]); 
 
         $dados = [
@@ -123,17 +123,17 @@ class EventoController extends Controller
             'hora_fim'=>'date_format:H:i|after:hora_inicio',
             'precoBRL'=>'required|numeric',
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'categoria_evento_id.required'=>"O :atributo é obrigatorio!",
-            'local_id.required'=>"O :atributo é obrigatorio!",
-            'data.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.required'=>"O :atributo é obrigatorio!",
-            'precoBRL.required'=>"O :atributo é obrigatorio!",
-            'hora_inicio.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.date_format'=>"Coloque um horário válido na :atributo !",
-            'hora_fim.after'=>"A :atributo deve ser depois da hora_inicio!",
-            'precoBRL.numeric'=>"Coloque um valor numérico em :atributo !",
-        ]);
+            'nome.required'=>"O nome é obrigatório!",
+            'categoria_evento_id.required'=>"A categoria é obrigatória!",
+            'local_id.required'=>"O local é obrigatório!",
+            'data.required'=>"data é obrigatória!",
+            'hora_inicio.required'=>"A hora de início é obrigatória!",
+            'precoBRL.required'=>"O preço é obrigatório!",
+            'hora_inicio.date_format'=>"Coloque um horário válido na hora de início!",
+            'hora_fim.date_format'=>"Coloque um horário válido na hora de fim!",
+            'hora_fim.after'=>"A hora de fim deve ser depois da hora de início!",
+            'precoBRL.numeric'=>"Coloque um valor numérico no preço!",
+        ]); 
 
         $dados = [
             'nome'=> $request->nome,

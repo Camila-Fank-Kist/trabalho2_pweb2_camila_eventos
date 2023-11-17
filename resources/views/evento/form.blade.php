@@ -4,11 +4,14 @@
 
 @section('content')
 @if ($errors->any())
-<ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-</ul>
+    <div class="mx-auto md:max-w-4xl max-w-sm p-6 bg-white border border-rose-200 rounded-lg shadow dark:bg-rose-800 dark:border-rose-700">
+        <ul class="text-rose-800">
+            <li>ATENÇÃO!!!</li>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 @php
 // dd($evento); // é igual ao var_dump()
@@ -89,7 +92,7 @@ $route = route('evento.store');
                 <input type="text" name="precoBRL" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-700 border-opacity-40 text-gray-600
                 focus:ring-0 focus:border-rose-700" value="@if (!empty($evento->precoBRL)) {{ $evento->precoBRL }} @elseif(!empty(old('precoBRL'))) {{ old('precoBRL') }} @else {{ '' }} @endif">
             </label><br>
- 
+
             @php
             $nome_imagem = !empty($evento->imagem) ? $evento->imagem : 'imagem/sem_imagem.jpg';
             @endphp

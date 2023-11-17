@@ -33,11 +33,12 @@ class ApresentadorController extends Controller
     {
         $request->validate([
             'nome'=>'required|max:100',
-            'data_nascimento'=>'date'
+            'data_nascimento'=>'required|date'
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'nome.max'=>" Só são permitidos 100 caracteres no :attribute !",
-            'nome.date'=>" A :attribute é uma data!",
+            'nome.required'=>"O nome é obrigatório!",
+            'nome.max'=>"Só são permitidos 100 caracteres no nome!",
+            'data_nascimento.required'=>"A data é obrigatória!",
+            'data_nascimento.date'=>"Coloque um formato de data válido!",
         ]);
 
         $dados = [
@@ -87,11 +88,12 @@ class ApresentadorController extends Controller
     {
         $request->validate([
             'nome'=>'required|max:100',
-            'data_nascimento'=>'date'
+            'data_nascimento'=>'required|date'
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'nome.max'=>" Só são permitidos 100 caracteres no :attribute !",
-            'nome.date'=>" A :attribute é uma data!",
+            'nome.required'=>"O nome é obrigatório!",
+            'nome.max'=>"Só são permitidos 100 caracteres no nome!",
+            'data_nascimento.required'=>"A data é obrigatória!",
+            'data_nascimento.date'=>"Coloque um formato de data válido!",
         ]);
 
         $dados = [

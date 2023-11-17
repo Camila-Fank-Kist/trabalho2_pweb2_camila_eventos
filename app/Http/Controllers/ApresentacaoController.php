@@ -41,9 +41,9 @@ class ApresentacaoController extends Controller
             'apresentador_id' => 'required',
             'categoria_apresentacao_id' => 'required',
         ], [
-            'titulo.required' => "O título é obrigatorio!",
-            'apresentador_id.required' => "O apresentador é obrigatorio!",
-            'categoria_apresentacao_id.required' => "A categoria é obrigatorio!",
+            'titulo.required' => "O título é obrigatório!",
+            'apresentador_id.required' => "O apresentador é obrigatório!",
+            'categoria_apresentacao_id.required' => "A categoria é obrigatório!",
         ]);
 
         $dados = [
@@ -102,9 +102,9 @@ class ApresentacaoController extends Controller
             'apresentador_id' => 'required',
             'categoria_apresentacao_id' => 'required',
         ], [
-            'titulo.required' => "O :atributo é obrigatorio!",
-            'apresentador_id.required' => "O :atributo é obrigatorio!",
-            'categoria_apresentacao_id.required' => "O :atributo é obrigatorio!",
+            'titulo.required' => "O título é obrigatório!",
+            'apresentador_id.required' => "O apresentador é obrigatório!",
+            'categoria_apresentacao_id.required' => "A categoria é obrigatório!",
         ]);
 
         $dados = [

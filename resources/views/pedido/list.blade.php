@@ -22,7 +22,7 @@
 
         <form action="{{ route('pedido.search') }}" method="post">
             @csrf <!-- cria um hash de segurança -->
-            <div class="grid grid-cols-4 gap-6 flex space-x-4">
+            <div class="grid grid-cols-4 gap-2">
                 <div class="relative mb-1">
                     <select name="tipo"
                         class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-800 border-opacity-30 text-gray-600
@@ -48,7 +48,7 @@
                         Cadastrar
                     </a>
                 </div>
-                <div class="relative mb-1">
+                <div class="mb-1"><!--relative -->
                     <button type="button"
                         class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
                         <a href="{{ route('pedido.chart') }}">

@@ -38,12 +38,12 @@ class LocalController extends Controller
             'telefone'=>'required',
             'endereco'=>'required',
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'capacidade.required'=>"O :atributo é obrigatorio!",
-            'telefone.required'=>"O :atributo é obrigatorio!",
-            'endereco.required'=>"O :atributo é obrigatorio!",
-            'capacidade.integer'=>"A :atributo é um número inteiro!",
-            'capacidade.min'=>"O mínimo de :atributo é 1!",
+            'nome.required'=>"O nome é obrigatório!",
+            'capacidade.required'=>"A capacidade é obrigatória!",
+            'telefone.required'=>"O telefone é obrigatório!",
+            'endereco.required'=>"O endereço é obrigatório!",
+            'capacidade.integer'=>"A capacidade é um número inteiro!",
+            'capacidade.min'=>"O mínimo para a capacidade é 1!",
         ]);
 
         $dados = [
@@ -104,12 +104,12 @@ class LocalController extends Controller
             'telefone'=>'required',
             'endereco'=>'required',
         ],[
-            'nome.required'=>"O :atributo é obrigatorio!",
-            'capacidade.required'=>"O :atributo é obrigatorio!",
-            'telefone.required'=>"O :atributo é obrigatorio!",
-            'endereco.required'=>"O :atributo é obrigatorio!",
-            'capacidade.integer'=>"A :atributo é um número inteiro!",
-            'capacidade.min'=>"O mínimo de :atributo é 1!",
+            'nome.required'=>"O nome é obrigatório!",
+            'capacidade.required'=>"A capacidade é obrigatória!",
+            'telefone.required'=>"O telefone é obrigatório!",
+            'endereco.required'=>"O endereço é obrigatório!",
+            'capacidade.integer'=>"A capacidade é um número inteiro!",
+            'capacidade.min'=>"O mínimo para a capacidade é 1!",
         ]);
 
         $dados = [

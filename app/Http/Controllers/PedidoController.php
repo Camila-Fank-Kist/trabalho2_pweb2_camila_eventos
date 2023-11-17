@@ -45,8 +45,8 @@ class PedidoController extends Controller
             'evento_id'=>'required',
             'quantidade'=>'required|integer|min:1',
         ],[
-            'evento_id.required'=>"O evento é obrigatorio!",
-            'quantidade.required'=>"A quantidade é obrigatoria!",
+            'evento_id.required'=>"O evento é obrigatório!",
+            'quantidade.required'=>"A quantidade é obrigatória!",
             'quantidade.integer'=>"A quantidade é um número inteiro!",
             'quantidade.min'=>"O mínimo para a quantidade é 1!",
         ]);
@@ -96,8 +96,8 @@ class PedidoController extends Controller
             'evento_id'=>'required',
             'quantidade'=>'required|integer|min:1',
         ],[
-            'evento_id.required'=>"O evento é obrigatorio!",
-            'quantidade.required'=>"A quantidade é obrigatoria!",
+            'evento_id.required'=>"O evento é obrigatório!",
+            'quantidade.required'=>"A quantidade é obrigatória!",
             'quantidade.integer'=>"A quantidade é um número inteiro!",
             'quantidade.min'=>"O mínimo para a quantidade é 1!",
         ]);

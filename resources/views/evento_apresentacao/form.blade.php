@@ -4,11 +4,14 @@
 
 @section('content')
     @if ($errors->any())
-        <ul>
+    <div class="mx-auto md:max-w-4xl max-w-sm p-6 bg-white border border-rose-200 rounded-lg shadow dark:bg-rose-800 dark:border-rose-700">
+        <ul class="text-rose-800">
+            <li>ATENÇÃO!!!</li>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
+    </div>
     @endif
     @php
         // dd($evento_apresentacao); // é igual ao var_dump()
