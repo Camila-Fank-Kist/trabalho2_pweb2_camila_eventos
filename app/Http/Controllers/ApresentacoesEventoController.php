@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Evento_Apresentacao;
 use Illuminate\Http\Request;
 
 class ApresentacoesEventoController extends Controller
@@ -21,6 +22,7 @@ class ApresentacoesEventoController extends Controller
     public function index($id)
     {
         //$id = 6;
+        $evento = Evento::find($id);
         $eventosApresentacaoEvento = Evento::with('evento_apresentacao', 'pedido', 'avaliacao', 'apresentacoes')->find($id);
         //dd($eventosApresentacaoEvento->evento_apresentacao);
         //dd($EventosApresentacaoEvento[0]->evento_apresentacao[0]->apresentacao->titulo);
@@ -28,7 +30,7 @@ class ApresentacoesEventoController extends Controller
         //fazer um for para percorrer os itens (os evento_apresentacao) 
         //e de cada evento_apresentacao pegar ->apresentacao->titulo
 
-        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacaoEvento->evento_apresentacao]);
+        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacaoEvento->evento_apresentacao, 'evento'=>$evento]);
     }
 
     /**
@@ -188,20 +190,24 @@ class ApresentacoesEventoController extends Controller
         return redirect('evento')->with('success', "Removido com sucesso!");
     }
     /**
-     * pesquisa e filtra o registro do banco de dados
+     * pesquisa e filtra o registro do banco de dados 
      */
-    public function search(Request $request)
+    public function search($id, Request $request)
     {
+        //$idEvento = $id;
+        //$usuario = Evento::find($id);
+        $evento = Evento::find($id);
+        //dd($evento);
         if (!empty($request->valor)) {
-            $eventos = Evento::where(
+            $eventosApresentacoesEvento = Evento_Apresentacao::where(
                 $request->tipo,
                 'like',
                 "%" . $request->valor . "%"
-            )->get();
+            )->where('evento_id', 'like', '%' . $id . '%')->get();
         } else {
-            $eventos = Evento::all();
+            $eventosApresentacoesEvento = Evento_Apresentacao::all();
         }
 
-        return view('evento.list')->with(['eventos' => $eventos]);
+        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacoesEvento, 'evento' => $evento]);
     }
 }

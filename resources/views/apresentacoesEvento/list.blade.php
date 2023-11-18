@@ -5,13 +5,13 @@
 @section('content')
 
 <!--<div class="mx-auto divide-y md:max-w-4xl">-->
-@foreach ($eventosApresentacaoEvento as $item)
+@foreach ($evento as $item)
 @php
-$nome_imagem = !empty($item->evento->imagem) ? $item->evento->imagem : 'imagem/sem_imagem.jpg';
+$nome_imagem = !empty($item->imagem) ? $item->imagem : 'imagem/sem_imagem.jpg';
 if(File::exists($nome_imagem)) {
-$nome_imagem = "/public/storage/".$nome_imagem;
+    $nome_imagem = "/public/storage/".$nome_imagem;
 }else{
-$nome_imagem = "/storage/".$nome_imagem;
+    $nome_imagem = "/storage/".$nome_imagem;
 }
 @endphp
 @endforeach
@@ -19,8 +19,8 @@ $nome_imagem = "/storage/".$nome_imagem;
 <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white text-rose-900">{{ $eventosApresentacaoEvento[0]->evento->nome }}</h1>
-            <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->descricao ?? '' }}</p>
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white text-rose-900">{{ $evento->nome ?? '' }}</h1>
+            <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-rose-900 opacity-70">{{ $evento->descricao ?? '' }}</p>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex pr-40">
         <img src="{{ $nome_imagem }}" alt="evento">
@@ -39,29 +39,29 @@ $nome_imagem = "/storage/".$nome_imagem;
                 <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Id</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->id }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->id ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Id</p>
             </div>
             <div>
             <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Categoria</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->categoria_evento->nome ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->categoria_evento->nome ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Categoria</p>
             </div>
             <div>
                 <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Local</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->local->nome ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->local->nome ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Local</p>
             </div>
             <div>
             <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Data</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->data ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->data ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Data</p>
             </div>
         </div>
         <div class="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
@@ -69,8 +69,8 @@ $nome_imagem = "/storage/".$nome_imagem;
             <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Preço R$</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->precoBRL ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->precoBRL ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Preço R$</p>
             </div>
             <div>
                 <!--<svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -84,15 +84,15 @@ $nome_imagem = "/storage/".$nome_imagem;
             <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Hora início</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->hora_inicio ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->hora_inicio ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Hora início</p>
             </div>
             <div>
             <svg class="w-10 h-10 mb-2 text-rose-400 md:w-12 md:h-12 dark:text-purple-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h3 class="mb-2 text-2xl font-bold text-rose-900">Hora fim</h3>
-                <p class="font-light text-rose-900 opacity-70">{{ $eventosApresentacaoEvento[0]->evento->hora_fim ?? '' }}</p>
+                <h3 class="mb-2 text-2xl font-bold text-rose-900">{{ $evento->hora_fim ?? '' }}</h3>
+                <p class="font-light text-rose-900 opacity-70">Hora fim</p>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@ $nome_imagem = "/storage/".$nome_imagem;
     <div class="grid max-w-screen-xl px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h3 class="max-w-1xl mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-2xl xl:text-3xl dark:text-white text-rose-900">Apresentações</h3>
-            <p class="mb-6 font-light text-rose-900 opacity-70">Confira a programação de {{ $eventosApresentacaoEvento[0]->evento->nome }}.</p>
+            <p class="mb-6 font-light text-rose-900 opacity-70">Confira a programação de {{ $evento->nome }}.</p>
         </div>
     </div>
 </section>
@@ -111,15 +111,16 @@ $nome_imagem = "/storage/".$nome_imagem;
 <!--<h3 class="pt-4 text-2xl font-medium text-rose-800">Listagem de Eventos</h3>-->
 <div class="block w-full flex space-x-3 rounded-lg bg-white pl-3 pr-7 dark:bg-neutral-700">
 
-    <form action="{{ route('evento.search') }}" method="post">
+    <form action="{{ route('apresentacoesEvento.search', $evento->id) }}" method="post">
         @csrf <!-- cria um hash de segurança -->
         <div class="grid grid-cols-4 gap-6 flex space-x-4">
             <div class="relative mb-1">
                 <select name="tipo" class="mt-0 block w-full px-0.5 border-0 border-b-2 border-rose-800 border-opacity-30 text-gray-600
                 focus:ring-0 focus:border-rose-800">
-                    <option value="nome">Nome</option>
-                    <option value="descricao">Descrição</option>
-                    <option value="precoBRL">Preço</option>
+                    <!--<option value="titulo">Título</option>-->
+                    <!--<option value="descricao">Descrição</option>-->
+                    <option value="hora_inicio">Hora início</option>
+                    <option value="hora_fim">Hora fim</option>
                 </select>
             </div>
             <div class="relative mb-1">
@@ -158,7 +159,7 @@ $nome_imagem = "/storage/".$nome_imagem;
                             <th scope="col" class="px-6 py-4 text-rose-800">Título</th>
                             <th scope="col" class="px-6 py-4 text-rose-800">Apresentador</th>
                             <th scope="col" class="px-6 py-4 text-rose-800">Categoria</th>
-                            <th scope="col" class="px-6 py-4 text-rose-800">Descição</th>
+                            <th scope="col" class="px-6 py-4 text-rose-800">Descrição</th>
                             <th scope="col" class="px-6 py-4 text-rose-800">Hora início</th>
                             <th scope="col" class="px-6 py-4 text-rose-800">Hora fim</th>
                             <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>

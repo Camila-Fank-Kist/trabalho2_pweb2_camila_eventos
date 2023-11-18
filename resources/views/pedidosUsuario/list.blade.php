@@ -10,23 +10,19 @@
   class="block rounded-lg bg-rose-800 p-6 mb-4 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
   <h5
     class="pt-4 text-2xl font-medium leading-tight text-white">
-    Meus pedidos
-    <!--Pedidos de {{-- $pedidosUsuario->name --}}-->
+    <!--Meus pedidos-->
+    Pedidos de {{ $usuario->name }}
   </h5>
   <p class="pt-2 pb-2 mb-2 text-base text-white">
-    Confira os seus pedidos.
+    Confira os pedidos.
   </p> 
 </div> 
 <!--<h3 class="pt-4 text-2xl font-medium text-rose-800">Listagem de Pedidos</h3>--> 
-    @php
-        //dd($idUsuario);
-        //$itemUsuario = $idUsuario;
-    @endphp
     <div
         class="block w-full flex space-x-3 rounded-lg bg-white pl-3 pr-7 dark:bg-neutral-700">
 
-        <form action="{{ route('pedidosUsuario.search', $idUsuario) }}" method="post"> <!-- Auth::user()->id -->
-            @csrf <!-- cria um hash de segurança -->
+        <form action="{{ route('pedidosUsuario.search', $usuario->id) }}" method="post"> <!-- Auth::user()->id -->
+            @csrf <!-- cria um hash de segurança --> 
             <div class="grid grid-cols-4 gap-6 flex space-x-4">
                 <div class="relative mb-1">
                     <select name="tipo"
@@ -50,7 +46,7 @@
                     <a class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900"
                         href="{{ route('pedido.create') }}">
                         <i class="fa-solid fa-plus"></i>  
-                        Cadastrar
+                        Cadastrar 
                     </a>
                 </div>
             </div>

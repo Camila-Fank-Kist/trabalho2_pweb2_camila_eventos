@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class PedidosUsuarioController extends Controller
 {
     /**
-     * Carrega a listagem de dados   
+     * Carrega a listagem de dados    
      */ 
 
     /*
@@ -29,11 +29,11 @@ class PedidosUsuarioController extends Controller
     public function index($id)
     {
         //$id = 6; 
-        $idUsuario = $id;
+        //$idUsuario = $id;
         $usuario = User::with('pedido')->find($id); //->with('pedido')->get() //select * from User where id = $id
         //dd($usuario->name);
 
-        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $usuario->pedido, 'idUsuario'=>$idUsuario]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario' => $usuario->pedido, 'usuario' => $usuario]); //'idUsuario'=>$idUsuario
     }
 
     /**
@@ -145,7 +145,7 @@ class PedidosUsuarioController extends Controller
      */
     public function search($id, Request $request)
     {
-        $idUsuario = $id;
+        //$idUsuario = $id;
         $usuario = User::find($id); //->with('pedido')->get() //select * from User where id = $id
         //dd($usuario->id);
         
@@ -159,7 +159,7 @@ class PedidosUsuarioController extends Controller
             $pedidosUsuario = User::with('pedido')->find($id)->pedido;
         }
 
-        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario, 'idUsuario'=>$idUsuario]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario, 'usuario'=>$usuario]);
     }
 
     /*public function chart(GraficoPedidos $pedidos){
