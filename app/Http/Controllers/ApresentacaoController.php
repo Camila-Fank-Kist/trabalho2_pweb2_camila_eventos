@@ -16,7 +16,7 @@ class ApresentacaoController extends Controller
     public function index()
     { 
         $apresentacoes = Apresentacao::with('eventos', 'evento_apresentacao')->get();
-        //dd($apresentacoes[0]->evento_apresentacao[0]->apresentacao->titulo); //eventos (n-n) não tá funcionando: lista só 1 
+        //dd($apresentacoes[0]->evento_apresentacao[0]->apresentacao->titulo);
 
         return view('apresentacao.list')->with(['apresentacoes' => $apresentacoes]);
     }

@@ -78,6 +78,7 @@
                                 <th scope="col" class="px-6 py-4 text-rose-800">Hora Fim</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Descrição</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Preço R$</th>
+                                <th scope="col" class="px-6 py-4 text-rose-800">Apresentações</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
                             </tr>
@@ -106,6 +107,9 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->hora_fim ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->descricao ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->precoBRL ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
+                                            href="{{ route('apresentacoesEvento.index', $item->id) }}">
+                                            <i class="fa-solid fa-person-chalkboard"></i> Apresentações</a></td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
                                             href="{{ route('evento.edit', $item->id) }}">
                                             <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>

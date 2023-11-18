@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ApresentacaoController;
+use App\Http\Controllers\ApresentacoesEventoController;
 use App\Http\Controllers\ApresentadorController;
 use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\Evento_ApresentacaoController;
@@ -309,6 +310,17 @@ Route::middleware('auth')->group(function () {
     //chama o método para serch para pesquisar e filtrar o registro da listagem
     Route::post('/pedidosUsuario/search/{id}',
     [PedidosUsuarioController::class, 'search'])->name('pedidosUsuario.search');
+
+
+
+
+
+    //carrega uma listagem do banco
+    Route::get('/apresentacoesEvento/{id}',
+    [ApresentacoesEventoController::class, 'index'])->name('apresentacoesEvento.index');
+    //chama o método para serch para pesquisar e filtrar o registro da listagem
+    Route::post('/apresentacoesEvento/search/{id}',
+    [ApresentacoesEventoController::class, 'search'])->name('apresentacoesEvento.search');
     
 
 
