@@ -30,10 +30,10 @@ class PedidosUsuarioController extends Controller
     {
         //$id = 6; 
         $idUsuario = $id;
-        $pedidosUsuario = User::with('pedido')->find($id); //->with('pedido')->get() //select * from User where id = $id
-        //dd($pedidosUsuario->pedido);
+        $usuario = User::with('pedido')->find($id); //->with('pedido')->get() //select * from User where id = $id
+        //dd($usuario->name);
 
-        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $pedidosUsuario->pedido, 'idUsuario'=>$idUsuario]);
+        return view('pedidosUsuario.list')->with(['pedidosUsuario'=> $usuario->pedido, 'idUsuario'=>$idUsuario]);
     }
 
     /**

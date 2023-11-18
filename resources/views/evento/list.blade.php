@@ -109,7 +109,7 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->precoBRL ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
                                             href="{{ route('apresentacoesEvento.index', $item->id) }}">
-                                            <i class="fa-solid fa-person-chalkboard"></i> Apresentações</a></td>
+                                            <i class="fa-solid fa-person-chalkboard"></i> Apresentações</a></td> <!--Programação-->
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
                                             href="{{ route('evento.edit', $item->id) }}">
                                             <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>

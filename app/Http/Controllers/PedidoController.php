@@ -20,7 +20,8 @@ class PedidoController extends Controller
 
     public function index()
     {
-        $pedidos = Pedido::with('user')->get();
+        $pedidos = Pedido::with('user', 'evento')->get();
+        //dd($pedidos[3]->quantidade * $pedidos[3]->evento->precoBRL);
 
         return view('pedido.list')->with(['pedidos'=> $pedidos]);
     }

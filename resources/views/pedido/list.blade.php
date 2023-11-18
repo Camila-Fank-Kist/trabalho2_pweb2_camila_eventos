@@ -77,6 +77,7 @@
                                 <th scope="col" class="px-6 py-4 text-rose-800">Evento</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Quantidade</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Forma pagamento</th>
+                                <th scope="col" class="px-6 py-4 text-rose-800">Preço total</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
                                 <th scope="col" class="px-6 py-4 text-rose-800">Ações</th>
                             </tr>
@@ -86,10 +87,13 @@
                                 <tr
                                     class="border-b border-rose-800 transition duration-300 ease-in-out hover:bg-rose-100">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium border-rose-800 text-rose-800">{{ $item->id }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->user->name ?? '' }}</td> 
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->evento->nome ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 hover:opacity-80"><a
+                                            href="{{ route('pedidosUsuario.index', $item->user->id) }}">{{ $item->user->name ?? '' }}</a></td> 
+                                    <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 hover:opacity-80"><a
+                                            href="{{ route('apresentacoesEvento.index', $item->evento->id) }}">{{ $item->evento->nome ?? '' }}</a></td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->pagamento->nome ?? '' }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade * $item->evento->precoBRL ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a
                                             href="{{ route('pedido.edit', $item->id) }}">
                                             <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>
