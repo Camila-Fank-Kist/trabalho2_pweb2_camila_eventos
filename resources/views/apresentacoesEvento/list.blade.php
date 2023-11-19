@@ -5,15 +5,17 @@
 @section('content')
 
 <!--<div class="mx-auto divide-y md:max-w-4xl">-->
-@foreach ($evento as $item)
-@php
-$nome_imagem = !empty($item->imagem) ? $item->imagem : 'imagem/sem_imagem.jpg';
-if(File::exists($nome_imagem)) {
-    $nome_imagem = "/public/storage/".$nome_imagem;
-}else{
-    $nome_imagem = "/storage/".$nome_imagem;
-}
-@endphp
+
+@foreach($eventosApresentacaoEvento as $item)
+    @php
+    //dd($item->evento->imagem);
+    $nome_imagem = !empty($item->evento->imagem) ? $item->evento->imagem : 'imagem/sem_imagem.jpg';
+    if(File::exists($nome_imagem)) {
+        $nome_imagem = "/public/storage/".$nome_imagem;
+    }else{
+        $nome_imagem = "/storage/".$nome_imagem;
+    }
+    @endphp
 @endforeach
 
 <section class="bg-white dark:bg-gray-900">
@@ -136,12 +138,6 @@ if(File::exists($nome_imagem)) {
                     <i class="fa-solid fa-plus"></i>
                     Cadastrar
                 </a>
-            </div>
-            <div class="relative mb-1">
-                <button type="button" class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900">
-                    <a href="{{ route('evento.report') }}">
-                        <i class="fa-solid fa-file"></i> Relatório</a>
-                </button>
             </div>
         </div>
     </form>

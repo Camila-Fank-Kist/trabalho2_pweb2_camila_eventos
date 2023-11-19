@@ -95,7 +95,7 @@
 </section>
 <!-- End block -->
 <!-- Start block -->
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white">
     <div class="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
         <div class="col-span-2 mb-8">
             <p class="text-lg font-medium text-rose-400 dark:text-purple-500">Confiança a nível mundial</p>
@@ -103,7 +103,7 @@
             <p class="font-light sm:text-xl text-rose-900 opacity-70">Nossos rigorosos padrões de segurança e conformidade estão no centro de tudo o que fazemos.</p>
             <div class="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
                 <div>
-                    <a href="{{ route('avaliacao.index') }}" class="inline-flex items-center text-base font-medium text-rose-400 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700">
+                    <a href="{{ route('avaliacao.index') }}" class="inline-flex items-center text-base font-medium text-rose-400 hover:text-rose-900 dark:text-purple-500 dark:hover:text-purple-700">
                         Veja as avaliações
                         <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -111,7 +111,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route('apresentador.index') }}" class="inline-flex items-center text-base font-medium text-rose-400 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700">
+                    <a href="{{ route('apresentador.index') }}" class="inline-flex items-center text-base font-medium text-rose-400 hover:text-rose-900 dark:text-purple-500 dark:hover:text-purple-700">
                         Veja os apresentadores
                         <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -175,7 +175,7 @@
 </section>
 <!-- End block -->
 <!-- Start block -->
-<section class="bg-gray-50 dark:bg-gray-800">
+<section class="">
     <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
         <div class="max-w-screen-sm mx-auto text-center">
             <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-rose-900">Agende seu evento conosco</h2>

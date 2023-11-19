@@ -23,7 +23,8 @@ class ApresentacoesEventoController extends Controller
     {
         //$id = 6;
         $evento = Evento::find($id);
-        $eventosApresentacaoEvento = Evento::with('evento_apresentacao', 'pedido', 'avaliacao', 'apresentacoes')->find($id);
+        //dd($evento);
+        $eventosApresentacaoEvento = Evento::with('evento_apresentacao', 'pedido', 'avaliacao', 'apresentacoes')->find($id); //->get()
         //dd($eventosApresentacaoEvento->evento_apresentacao);
         //dd($EventosApresentacaoEvento[0]->evento_apresentacao[0]->apresentacao->titulo);
 
