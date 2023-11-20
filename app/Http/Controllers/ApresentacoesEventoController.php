@@ -209,6 +209,6 @@ class ApresentacoesEventoController extends Controller
             $eventosApresentacoesEvento = Evento_Apresentacao::all();
         }
 
-        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacoesEvento, 'evento' => $evento]);
+        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacoesEvento, 'evento' => $evento, 'imagem'=>$evento->imagem]);
     }
 }
