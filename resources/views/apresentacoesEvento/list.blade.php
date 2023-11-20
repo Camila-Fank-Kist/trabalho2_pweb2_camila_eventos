@@ -183,10 +183,10 @@
                             <td class="whitespace-nowrap px-6 py-4">{{ $item->hora_inicio ?? '' }}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{ $item->hora_fim ?? '' }}</td>
                             <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80">
-                                <a href="{{ route('evento.edit', $item->id) }}">
+                                <a href="{{ route('evento_apresentacao.edit', $item->id) }}">
                                     <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>
                             <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80">
-                                <a href="{{ route('apresentacao.destroy', $item->id) }}" onclick="return confirm('Deseja Excluir?')">
+                                <a href="{{ route('evento_apresentacao.destroy', $item->id) }}" onclick="return confirm('Deseja Excluir?')">
                                     <i class="fa-solid fa-trash"></i> Excluir</a>
                             </td>
                         </tr>
