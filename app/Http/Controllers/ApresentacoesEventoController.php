@@ -31,7 +31,7 @@ class ApresentacoesEventoController extends Controller
         //fazer um for para percorrer os itens (os evento_apresentacao) 
         //e de cada evento_apresentacao pegar ->apresentacao->titulo
 
-        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacaoEvento->evento_apresentacao, 'evento'=>$evento]);
+        return view('apresentacoesEvento.list')->with(['eventosApresentacaoEvento' => $eventosApresentacaoEvento->evento_apresentacao, 'evento'=>$evento, 'imagem'=>$evento->imagem]);
     }
 
     /**
@@ -188,7 +188,7 @@ class ApresentacoesEventoController extends Controller
 
         $evento->delete();
 
-        return redirect('evento')->with('success', "Removido com sucesso!");
+        return redirect('apresentacoesEvento')->with('success', "Removido com sucesso!");
     }
     /**
      * pesquisa e filtra o registro do banco de dados 

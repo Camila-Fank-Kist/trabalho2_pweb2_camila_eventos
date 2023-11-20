@@ -76,7 +76,6 @@
                                     <td class="whitespace-nowrap px-6 py-4 font-medium border-rose-800 text-rose-800">{{ $item->id }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 hover:opacity-80"><a
                                             href="{{ route('apresentacoesEvento.index', $item->evento->id) }}">{{ $item->evento->nome ?? '' }}</a></td>
-                                    <!--<td class="whitespace-nowrap px-6 py-4">{{ $item->evento->nome ?? '' }}</td>-->
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->pagamento->nome ?? '' }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item->quantidade * $item->evento->precoBRL ?? '' }}</td>

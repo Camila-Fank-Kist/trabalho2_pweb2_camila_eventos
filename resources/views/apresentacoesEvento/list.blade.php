@@ -3,20 +3,18 @@
 @section('titulo', 'Listagem de Eventos')
 
 @section('content')
-
+ 
 <!--<div class="mx-auto divide-y md:max-w-4xl">-->
 
-@foreach($eventosApresentacaoEvento as $item)
     @php
-    //dd($item->evento->imagem);
-    $nome_imagem = !empty($item->evento->imagem) ? $item->evento->imagem : 'imagem/sem_imagem.jpg';
+    //dd($imagem);
+    $nome_imagem = !empty($imagem) ? $imagem : 'imagem/sem_imagem.jpg';
     if(File::exists($nome_imagem)) {
         $nome_imagem = "/public/storage/".$nome_imagem;
     }else{
         $nome_imagem = "/storage/".$nome_imagem;
     }
     @endphp
-@endforeach
 
 <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -134,7 +132,8 @@
                     <i class="fa-solid fa-magnifying-glass"></i> Buscar
                 </button>
 
-                <a class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900" href="{{ route('evento.create') }}">
+                <a class="bg-rose-800 bg-opacity-20 text-rose-800 hover:text-white border border-rose-800 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-500 dark:text-rose-500 dark:hover:text-white dark:hover:bg-rose-600 dark:focus:ring-rose-900" 
+                href="{{ route('apresentacao.create') }}">
                     <i class="fa-solid fa-plus"></i>
                     Cadastrar
                 </a>
@@ -183,9 +182,11 @@
                             <td class="whitespace-nowrap px-6 py-4">{{ $item->apresentacao->descricao ?? '' }}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{ $item->hora_inicio ?? '' }}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{ $item->hora_fim ?? '' }}</td>
-                            <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a href="{{ route('evento.edit', $item->id) }}">
+                            <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80">
+                                <a href="{{ route('evento.edit', $item->id) }}">
                                     <i class="fa-regular fa-pen-to-square"></i> Editar</a></td>
-                            <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80"><a href="{{ route('evento.destroy', $item->id) }}" onclick="return confirm('Deseja Excluir?')">
+                            <td class="whitespace-nowrap px-6 py-4 text-rose-800 hover:scale-110 font-semibold hover:opacity-80">
+                                <a href="{{ route('apresentacao.destroy', $item->id) }}" onclick="return confirm('Deseja Excluir?')">
                                     <i class="fa-solid fa-trash"></i> Excluir</a>
                             </td>
                         </tr>

@@ -13,14 +13,16 @@
         </ul>
     </div>
 @endif
+
 @php
 // dd($avaliacao); // é igual ao var_dump()
 if (!empty($avaliacao->id)) {
-$route = route('avaliacao.update', $avaliacao->id);
+    $route = route('avaliacao.update', $avaliacao->id);
 } else {
-$route = route('avaliacao.store');
+    $route = route('avaliacao.store');
 }
 @endphp
+
 <div class="mx-auto divide-y md:max-w-4xl">
     <div class="grid grid-cols 2 gap-4">
         <h3 class="pt-4 text-2xl font-medium text-rose-700">Formulário de Avaliacao</h3>
